@@ -14,5 +14,16 @@ void Case1()
     string sql = File.ReadAllText("SSIS_test1.sql");
 
     var copyService = new CopyService(config);
-    copyService.CopyTable(null, "[hack].[BusinessControlling_ConsolidatedRealised]", new SqlCommand(sql));
+
+	try
+	{
+		// E.g. start job in database
+		copyService.CopyTable(null, "[hack].[BusinessControlling_ConsolidatedRealised]", new SqlCommand(sql));
+		// E.g. finish job in database
+	}
+	catch (Exception)
+	{
+        // In case of error send alert to Fury, send message to teams, slack, etc.
+	}
+	
 }
