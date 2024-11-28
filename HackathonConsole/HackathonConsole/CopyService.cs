@@ -7,8 +7,6 @@ internal class CopyService(Configuration configuration)
 
     public void CopyTable(string sourceTable, string destinationTable, SqlCommand? sqlCommand = null)
     {
-        Console.WriteLine($"Copying data from ");
-
         using var sourceConnection = new SqlConnection(configuration.GetSourceConnectionString());
         using var destinationConnection = new SqlConnection(configuration.GetDestinationConnectionString());
 
