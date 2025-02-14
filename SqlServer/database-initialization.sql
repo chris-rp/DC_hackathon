@@ -27,5 +27,6 @@ CREATE TABLE [hack].[BusinessControlling_ConsolidatedRealised] (
     [DW_AuditGlobalKey_Update] [bigint] NULL
 )
 GO
-ALTER TABLE [hack].[BusinessControlling_ConsolidatedRealised] ADD CONSTRAINT [PK_BusinessControlling_ConsolidatedRealised] PRIMARY KEY CLUSTERED ([TradeID], [PositionID], [DeliveryDate], [Source], [MarketAreaName])
+ALTER TABLE [hack].[BusinessControlling_ConsolidatedRealised] ADD CONSTRAINT [PK_BusinessControlling_ConsolidatedRealised]
+PRIMARY KEY CLUSTERED ([TradeID], [PositionID], [DeliveryDate], [Source], [MarketAreaName])
 GO

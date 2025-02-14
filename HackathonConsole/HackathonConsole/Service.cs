@@ -1,7 +1,8 @@
 ﻿using Microsoft.Data.SqlClient;
+using System.Diagnostics;
 
 namespace HackathonConsole;
-internal class CopyService(Configuration configuration)
+internal class Service(Configuration configuration)
 {
     private readonly Configuration configuration = configuration;
 
@@ -34,8 +35,9 @@ internal class CopyService(Configuration configuration)
 
         try
         {
+            var start = Stopwatch.GetTimestamp();
             bulkCopy.WriteToServer(reader);
-            Console.WriteLine($"Done writing rows to {destinationTable}");
+            Console.WriteLine($"Done writing rows to {destinationTable} in {Stopwatch.GetElapsedTime(start).Seconds}");
         }
         catch (Exception ex)
         {
